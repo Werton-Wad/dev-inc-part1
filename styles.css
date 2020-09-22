@@ -165,7 +165,8 @@ table {
 }
 .about-us__column-left img {
 	max-width: 100%;
-	height: auto;
+	object-fit: cover;
+	height: 480px;
 }
 .about-us__note1 h3, .about-us__note2 h3 {
 	padding-bottom: 20px;
@@ -203,12 +204,18 @@ div .photo__item {
 	padding-bottom: 13px;
 	flex-basis: calc(100% / 3.1);
 	height: 360px;
+	overflow: hidden;
 }
 .photo__item img {
 	cursor: pointer;
-	object-fit: cover;
+	object-fit: fill;
     height: 100%;
-    width: 100%;
+	width: 100%;
+	transition: 1s;
+    display: block;
+}
+.photo__item img:hover {
+	transform: scale(1.2);
 }
 .team {
 	background-color: #f9fbfb;
@@ -440,25 +447,40 @@ div .team__item {
 .social-networks__icons a:hover .btn-social-network {
 	fill: #000;
 }
-
+.modal-content {
+	background: none;
+	border: none;
+}
+.carousel-control-prev {
+	left: -13%;
+}
+.carousel-control-next {
+	right: -13%;
+}
+.carousel-item img {
+	height: 60vh;
+	object-fit: cover;
+}
  @media screen and (max-width: 1024px){
-
 	.speech-bubble__text {
 		font-size: 14px;
 		line-height: 20px;
 	}	
 }
-
-@media screen and (max-width: 720px){
+@media screen and (max-width: 885px){
 	.about-us__columns {
-		display: block;
+		display: flex;
+		flex-direction: column;
 	}
 	.about-us__column-left {
-		width: 40%;
-		float: right;
-		padding-left: 10px;
-		padding-bottom: 10px;
+		text-align: center;
+		padding-bottom: 20px;
 	}
+	.about-us__column-right {
+		margin: 0;
+	}
+}
+@media screen and (max-width: 720px){
 	div .photo__item {
 		flex-basis: calc(100% / 2.05);
 	}
@@ -500,17 +522,6 @@ div .team__item {
 		font-size: 16px;
 		line-height: 20px;
 	}
-	.about-us__columns {
-		display: block;
-		padding-top: 100px;
-	}
-	.about-us__column-left {
-		display: none;
-	}
-	.about-us__column-right {
-		flex-basis: 100%;
-		margin: 0;
-	}
 	.about-us__note1 h3, .about-us__note2 h3 {
 		font-size: 18px;
 		line-height: 28px;
@@ -537,5 +548,11 @@ div .team__item {
 	}
 	.contacts__information {
 		flex-basis: 100%;
+	}
+	.carousel-control-prev {
+		left: -10%;
+	}
+	.carousel-control-next {
+		right: -10%;
 	}
 	}
